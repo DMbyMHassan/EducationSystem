@@ -27,4 +27,26 @@ public class StudentController {
     public Optional<Student> getStudentById(@PathVariable Integer id) {
         return studentRepository.findById(id);
     }
+    @PutMapping("/modify/{id}")
+    public Optional<Student> modifyStudent(@PathVariable Integer id, @RequestBody Student updatedStudent) {
+        Optional<Student> optionalStudent = studentRepository.findById(id);
+
+        if (optionalStudent.isPresent()) {
+            Student existingStudent = optionalStudent.get();
+            existingStudent.setFirstName(updatedStudent.getFirstName());
+            existingStudent.setLastName(updatedStudent.getLastName());
+            existingStudent.setEmail(updatedStudent.getEmail());
+            existingStudent.setAddress(updatedStudent.getAddress());
+            existingStudent.setCity(updatedStudent.getCity());
+            existingStudent.setPostal(updatedStudent.getPostal());
+            existingStudent.setPhone(updatedStudent.getPhone());
+            studentRepository.save(existingStudent);
+        }
+        return optionalStudent;
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteStudent(@PathVariable Integer id) {
+        studentRepository.deleteById(id);
+    }
 }

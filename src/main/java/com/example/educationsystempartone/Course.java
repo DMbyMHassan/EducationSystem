@@ -14,22 +14,12 @@ public class Course {
     private Integer courseId;
     private String courseName;
     private String courseNumber;
-    private int capacity;
+    private Integer capacity;
+    private Integer year;
+    private String semester;
+    private Integer pid;
 
-    public Course(Integer courseId) {
 
-        this.courseId = courseId;
-    }
-
-    public Course (String courseName, String courseNumber,int capacity) {
-        this.courseName =courseName;
-        this.courseNumber = courseNumber;
-        this.capacity =capacity;
-    }
-
-    public Course() {
-
-    }
 
 
     public Integer getCourseId() {
@@ -62,5 +52,33 @@ public class Course {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
+
+    public Integer getPid() {
+        return pid;
+    }
+
+    public void setPid(Integer pid) {
+        this.pid = pid;
     }
 }
